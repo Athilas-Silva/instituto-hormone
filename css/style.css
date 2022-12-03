@@ -144,12 +144,15 @@ header .content .btn{
     border-radius: 2rem;
 }
 
-.section h2 {
+.section-title {
     margin: 3rem 0;
+    font-size: 3rem;
 }
 
-.benefits {
+.feedbacks {
     display: flex;
+    justify-content: center;
+    gap: 3rem;
 }
 
 .about{
