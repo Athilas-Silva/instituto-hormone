@@ -2,7 +2,6 @@
 
 :root{
     --background-primary: #fff;
-    --background-secondary: linear-gradient(45deg, #bebebe, #eee, #d2d2d2);
     --buttons: #09930a;
     --text: #000;
     --title-header: #bd898a;
@@ -28,6 +27,7 @@ html, body{
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    overflow-y: overlay;
 }
 
 ::-webkit-scrollbar{
@@ -63,6 +63,10 @@ header .top{
     padding-bottom: 3rem;
 }
 
+.logo {
+    width: 100%;
+}
+
 header .content{
     text-align: center;
     word-wrap: break-word;
@@ -74,8 +78,12 @@ header .content .title{
     margin: auto;
     font-size: 3rem;
     color: var(--title-header);
-    border-bottom: .4rem solid var(--buttons);
     margin-bottom: 3rem;
+}
+
+header .content .title span {
+    text-align: center;
+    border-bottom: .4rem solid var(--buttons);
 }
 
 header .content .sub-title{
@@ -118,7 +126,7 @@ header .content .btn{
 
 .benefits {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, .2fr));
+    grid-template-columns: repeat(3, minmax(15rem, .2fr));
     grid-gap: calc(2rem + 5vw);
     justify-content: center;
     margin-bottom: 3rem;
@@ -180,21 +188,25 @@ header .content .btn{
     text-align: center;
     height: 100%;
     width: 100%;
-    padding: 2rem;
+    background: linear-gradient(0deg, #BEBEBE 0%, #EEEEEE 50%, #D2D2D2 100%);
 }
 
 .about .clinic{
     display: flex;
+    width: 100%;
+    position: relative;
 }
 
 .about .clinic .wrapper{
+    width: 50%;
     display: flex;
     flex-direction: column;
-    text-align: center;
     align-items: center;
-    gap: 1rem;
-    width: 100%;
-    height: 100%;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    margin-left: 20rem;
+    padding: 4rem;
 }
 
 .about .clinic .wrapper .about-title{
@@ -204,19 +216,16 @@ header .content .btn{
     padding: .2rem .5rem;
     background-color: var(--button-secondary);
     border-radius: 2rem;
-    margin-top: 1rem;
 }
 
 .about .clinic .wrapper .about-subtitle{
     font-size: 3.5rem;
     color: var(--buttons);
-    margin-bottom: 3rem;
 }
 
 .about .clinic .wrapper .about-text{
     font-size: 2rem;
     font-weight: normal;
-    margin-bottom: 5rem;
 }
 
 .about .clinic .wrapper .about-text span{
@@ -231,18 +240,26 @@ header .content .btn{
     padding: 1rem 4rem;
     background-color: var(--buttons);
     border-radius: 2rem;
+    cursor: pointer;
+    z-index: 10;
 }
 
-.about .clinic .woman{
+.about .clinic img{
     width: 100%;
-}
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 25rem;
+} 
 
 footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50vh;
     width: 100vw;
+    padding-inline: 1rem;
+    padding-bottom: 3rem;
 }
 
 footer .wrapper{
@@ -262,8 +279,12 @@ footer .wrapper .contact{
     width: 100%;
 }
 
+footer .wrapper .contact img {
+    width: 100%;
+}
+
 footer .wrapper .contact .text{
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-secondary);
     white-space: nowrap;
@@ -291,7 +312,7 @@ footer .wrapper .divider{
 footer .wrapper .social{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     text-align: center;
     gap: 1rem;
@@ -306,6 +327,7 @@ footer .wrapper .social .facebook{
     display: flex;
     align-items: center;
     gap: .5rem;
+    color: #000000;
 }
 
 footer .wrapper .social .whatsapp img,
@@ -316,14 +338,15 @@ footer .wrapper .social .facebook img{
 }
 
 footer .wrapper .social .location img{
-    height: 4rem;
     width: 2rem;
+    margin-left: .8rem;
 }
 
 footer .wrapper .social .whatsapp span{
     font-size: 1.6rem;
     white-space: nowrap;
     font-weight: 700;
+    margin-left: 2rem;
 }
 
 footer .wrapper .social .location span,
@@ -332,26 +355,18 @@ footer .wrapper .social .facebook span{
     font-size: 1.4rem;
     white-space: nowrap;
     font-weight: 500;
+    margin-left: 2rem;
 }
 
-/*
-.footer .social .text{
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--text-secondary);
+footer .wrapper .social .location span {
+    margin-left: 3.2rem;
 }
-
-.footer .social .btn{
-    padding: 1rem 2rem;
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: var(--background-primary);
-    background-color: var(--text-secondary);
-    border-radius: 2rem;
-}
-*/
  
 @media (max-width: 1200px) {
+    header .content .title, header .content .sub-title, .section-title {
+        font-size: calc(1.5rem + .5vw);
+    }
+
     .feedbacks {
         display: none;
     }
@@ -395,17 +410,6 @@ footer .wrapper .social .facebook span{
         border-radius: 3px 0 0 3px;
     }
     
-    /* Caption text */
-    .text {
-        color: #f2f2f2;
-        font-size: 15px;
-        padding: 8px 12px;
-        position: absolute;
-        bottom: 8px;
-        width: 100%;
-        text-align: center;
-    }
-    
     /* Number text (1/3 etc) */
     .numbertext {
         color: #afafaffc;
@@ -440,5 +444,67 @@ footer .wrapper .social .facebook span{
     @keyframes fade {
         from {opacity: .4}
         to {opacity: 1}
+    }
+
+    .about .clinic img {
+        display: none;
+    }
+
+    .about .clinic .wrapper .about-title {
+        font-size: 1.4rem;
+    }
+
+    .about .clinic .wrapper .about-subtitle {
+        white-space: nowrap;
+        font-size: calc(2rem + .5vw);
+    }
+
+    .about .clinic .wrapper .about-text {
+        font-size: 1.5rem;
+        font-weight: normal;
+        white-space: nowrap;
+    }
+
+    .about .clinic .wrapper {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .about .clinic .wrapper .btn {
+        font-size: 1rem;
+    }
+
+    footer .wrapper {
+        grid-template-columns: repeat(1, minmax(20rem, 1fr));
+    }
+
+    footer .wrapper .divider {
+        height: .8rem;
+        width: 100%;
+        margin: 3rem 0;
+    }
+}
+
+@media (max-width: 550px) {
+    .benefits {
+        grid-template-columns: repeat(1, minmax(15rem, .2fr));
+    }
+}
+
+@media (max-width: 460px)  {
+    header .content .title, header .content .sub-title, .section-title {
+        font-size: calc(1rem + .5vw);
+    }
+
+    header .content .btn {
+        font-size: 1rem;
+    }
+
+    .benefit p {
+        font-size: 1.2rem;
+    }
+
+    .section .btn {
+        font-size: 1rem;
     }
 }
